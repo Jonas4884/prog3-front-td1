@@ -1,0 +1,78 @@
+:root {
+    ---primary: #11998e;
+    --secondary: #38ef7d;
+    --white: #fff;
+    --gray: #9b9b9b;
+}
+
+.todo__item {
+    position: relative;
+    padding: 15px 0 0;
+    margin-top: 10px;
+    width: 50%;
+  }
+  
+.todo__input {
+    font-family: inherit;
+    width: 100%;
+    border: 0;
+    border-bottom: 2px solid blue;
+    outline: 0;
+    font-size: 1.3rem;
+    color: --white;
+    padding: 7px 0;
+    background: transparent;
+    transition: border-color 0.2s;
+    border-radius: 10px 10px 0px 0px;
+    background-color: #f8f2f2;
+    padding-left: 12px;
+} 
+
+.todo__input::placeholder{
+    color: transparent;
+   
+}
+
+.form__label {
+    position: absolute;
+    top: 11%;
+    display: block;
+    transition: 0.2s;
+    font-size: 1rem;
+    padding: 12px 21xp;
+    color: rgb(0, 0, 0,0.75);
+}
+ 
+
+.todo__input:focus::placeholder{
+    color: transparent;
+}
+.todo__input:focus{
+    border: none;
+    border-radius: 10px 10px 0px 0px;
+    background-color: #f8f2f2;
+    border-bottom: 2px solid rgb(17, 161, 17);
+    font-size: larger;
+}
+
+.item__value{
+    font-size: 50;
+    margin-left: 12px;
+}
+.todo__value{
+    border: 1px solid;
+    border-radius: 10px 10px 10px 10px;
+    background-color: var(--secondary);
+    padding: 12px 12px 12px 12px;
+}
+p{
+    font-size: 25px;
+    cursor: pointer;
+}
+.container__around{
+    border: 2.5px solid;
+    padding: 52px 52px 52px 52px;
+    border-radius: 12px 12px 12px 12px;
+    margin: auto;
+    width: 50%;
+}
