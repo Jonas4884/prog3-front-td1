@@ -5,7 +5,7 @@ const TodoItemList = (props) => {
   const currentTodos = todos.filter(todo => todo.status === todoStatus);
   return (
     <div className='todo__array' style={{ padding: '.5rem' }}>
-      <h1>{todoStatus.toString().toUpperCase()}</h1>
+      <h1 title='todo__title'>{todoStatus.toString().toUpperCase()}</h1>
       <div className='actions'>{actions}</div>
       <div>
         {currentTodos.length > 0 ? (

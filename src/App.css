@@ -1,12 +1,38 @@
-:root {
-	--omrs-color-ink-lowest-contrast: rgba(47, 60, 85, 0.18);
-	--omrs-color-ink-low-contrast: rgba(60, 60, 67, 0.3);
-	--omrs-color-ink-medium-contrast: rgba(19, 19, 21, 0.6);
-	--omrs-color-interaction: #1e4bd1;
-	--omrs-color-interaction-minus-two: rgba(73, 133, 224, 0.12);
-	--omrs-color-danger: #b50706;
-	--omrs-color-bg-low-contrast: #eff1f2;
-	--omrs-color-ink-high-contrast: #121212;
-	--omrs-color-bg-high-contrast: #ffffff;
-	
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
