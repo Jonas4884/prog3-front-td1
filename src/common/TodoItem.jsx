@@ -13,7 +13,7 @@ const TodoItem = (props) => {
   };
 
   return (
-    <div className='todo__item todo__value'>
+    <div className='todo__item todo__value' test-id="the__item">
       <input type='checkbox' className='pointer' onClick={toDone} checked={todo.status === TodoStatus.DONE} id={todo.id.toString()} />
       <label className='item__value'>{todo.value}</label>
       {todo.status === TodoStatus.DONE && (

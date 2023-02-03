@@ -24,19 +24,22 @@ describe('should return the todo add task', () => {
         expect(thePlaceholder).toBeInTheDocument();
         expect(addTodo).toBeInTheDocument();
       })
+      test('should can input on the blank', () => { 
+        render (<TodoForm/>)
+        const thePlaceholder = screen.getByPlaceholderText("Add new task")
+        thePlaceholder.onfocus()
+        expect(thePlaceholder.autofocus()).toBeInTheDocument();
+       })     
 
       
       test('should disapear the input on enter typing',  () => {
         const addTodo = "jadd okoko"
       render(<TodoForm add={[addTodo]}/>)
       const thePlaceholder = screen.getByPlaceholderText("Add new task")
-      thePlaceholder.onmouseenter()
+      thePlaceholder.onsubmit()
       expect(thePlaceholder).toBeInTheDocument();
-     expect(addTodo).not.toBeInTheDocument();
-    })
+      expect(addTodo).not.toBeInTheDocument();
+      })
 
-    
-      
-
-      
+     
  })
