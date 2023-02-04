@@ -1,5 +1,4 @@
 import { render, screen } from "@testing-library/react";
-import test from "node:test";
 import TodoItemList from "../common/TodoList";
 import { TodoStatus } from "../common/utils/status";
 import { todo } from "./testUtils";
@@ -7,7 +6,7 @@ import { todo } from "./testUtils";
 describe("the entire test for the list", () => {
   // TODO : this first would be a snapshot test
   test("it should return the value of generic todo list", () => {
-    render(<TodoItemList todos={todo} />);
+    render(<TodoItemList todos={todo} todoStatus={TodoStatus.DONE} />);
     const theactualValue = screen.getByRole("todo__array");
 
     // TODO : handle that it is a heading
