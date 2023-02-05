@@ -1,5 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import TodoItemList from "../common/TodoList";
+import TodoForm from "../common/TodoForm";
 import { TodoStatus } from "../common/utils/status";
 import { todo } from "./testUtils";
 
@@ -21,15 +22,16 @@ describe("the entire test for the list", () => {
   });
 
   test("it should return action to to-do", () => {
-    const addFormMock = jest.doMock();
-    render(<TodoItemList actions={addFormMock} />);
+    const addFormMock = jest.fn();
+    render(<TodoItemList actions={<TodoForm add={todo} todos={todo}/>} />);
     const actionArea = screen.getByTestId("action__id");
     expect(actionArea).not.toBeEmpty();
   });
 
   test("it shouldn't return value if todo haven't task", () => {
-    render(<TodoItemList todos={[]} />);
-    const notaskActual = screen.getByTestId("no__task");
+    const todo__array = []
+    render(<TodoItemList todos={todo__array} todoStatus={TodoStatus.DONE} />);
+    const notaskActual = screen.getByText("no task");
     expect(notaskActual).toBeInTheDocument();
   });
 

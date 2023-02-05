@@ -1,4 +1,7 @@
 import { render, screen } from "@testing-library/react";
+import TodoItem from "../common/TodoItem";
+import { done } from "./testUtils";
+import userEvent from "@testing-library/user-event";
 import App from "../App";
 
 
@@ -14,4 +17,12 @@ describe('should return main interface', () => {
         const titleTorender = screen.getByText("DONE");
     expect(titleTorender).toBeInTheDocument();
      })
+
+     test("should remove item onClick", () => {
+        const remove = jest.autoMockOn();
+        render(<TodoItem todo={done.at(0)} onRemove={remove} />);
+        const actualStatus = screen.getByRole("remove_area");
+        userEvent.click(actualStatus);
+        expect(done.at(0).value).not.toBeInTheDocument();
+      });
 });
