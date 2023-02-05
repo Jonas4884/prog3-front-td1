@@ -15,7 +15,7 @@ const TodoItem = (props) => {
   return (
     <div className='todo__item todo__value' role={"the__item"}>
       <input name="todo" type='checkbox' className='pointer' onClick={toDone} checked={todo.status === TodoStatus.DONE} id={todo.id.toString()} />
-      <label htmlFor="todo"  className='item__value' role={"todovalue"}>{todo.value}</label>
+      <label htmlFor="todo"  className='item__value' role={"todo_value"}>{todo.value}</label>
       {todo.status === TodoStatus.DONE && (
         <p className='pointer'  role={"remove_area"} onClick={remove}>
           x
