@@ -1,8 +1,6 @@
 import { useState } from 'react';
 import { TodoStatus } from './utils/status';
 
-
-
 const TodoForm = (props) => {
   const [Todo, setTodoValue] = useState('');
   const { add } = props;
@@ -20,8 +18,8 @@ const TodoForm = (props) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input  className='todo__input' placeholder='Add new task' name='name' id='name' value={Todo} type='text' onChange={handleChange} />
+    <form onSubmit={handleSubmit} test-id="the__item">
+      <input  className='todo__input' placeholder='Add new task'  data-testid="element-to-focus" name='name' id='name' value={Todo} type='text' onChange={handleChange} />
         <label htmlFor="name" className='form__label'>Press enter to add Task</label>
     </form>
   );

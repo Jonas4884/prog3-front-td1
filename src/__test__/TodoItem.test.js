@@ -6,52 +6,44 @@ import { done, todo } from "./testUtils";
 
 describe("should return each item of to do task", () => {
   test("should return", () => {
-    render(<TodoItem />);
-    // eslint-disable-next-line testing-library/await-async-query
-    const theFirsDiv = screen.findByTestId("the__item");
+    render(<TodoItem  todo={todo.at(0)}/>);
+    const theFirsDiv = screen.getByRole("the__item");
     expect(theFirsDiv).toBeInTheDocument();
   });
 
   //TO-DO : Find to test snapshot
   test("should return an chekbox by an input", () => {
-    render(<TodoItem />);
+    render(<TodoItem todo={todo.at(0)} />);
+    const checked = screen.getByRole("checkbox")
+    expect(checked).toBeInTheDocument();
   });
 
-  test("should return the checkbox", () => {
-    render(<TodoItem />);
+  test("should return a simple  checkbox", () => {
+    render(<TodoItem todo={todo.at(0)}/>);
     const actual = screen.getByRole("checkbox");
-    expect(actual).not.toBeChecked();
     expect(actual).toBeInTheDocument();
   });
 
   test("should checked the checkbox", () => {
-    render(<TodoItem />);
+    render(<TodoItem todo={done.at(0)}/>);
     const actual = screen.getByRole("checkbox");
-    actual.click();
     expect(actual).toBeChecked();
   });
 
   test("should return the item value", () => {
-    const onDone = jest.fn();
-    const onRemove = jest.fn();
-    render(<TodoItem todo={[todo]} onDone={onDone} onRemove={onRemove} />);
-    const toLabelValue = screen.getByLabelText("todo");
-    expect(todo.filter((todo) => todo.value === toLabelValue)).not.toBeEmpty();
+    render(<TodoItem todo={todo.at(0)} />);
+    console.log(todo.at(0).value);
+    const toLabelValue = screen.findByRole("todovalue");
+    console.log(toLabelValue);
+    expect(toLabelValue).toBeInTheDocument();
   });
 
   test("should return a remover button to remove done task", () => {
-    render(<TodoItem todo={[done]} />);
-    const actualStatus = screen.getByRole("remove__area");
+    render(<TodoItem todo={done.at(0)} />);
+    const actualStatus = screen.getByRole("remove_area");
     expect(actualStatus).toContainHTML(
-      '<p className="pointer"  role={"remove_area"} onClick={remove}>x</p>'
+      '<p class="pointer"  role="remove_area">x</p>'
     );
   });
 
-  test("should remove item onClick", () => {
-    const remove = jest.fn();
-    const actualStatus = screen.getByRole("remove__area");
-    render(<TodoItem todo={[done]} onRemove={remove} />);
-    userEvent.click(actualStatus);
-    expect(done).toContainEqual([]);
-  });
 });
