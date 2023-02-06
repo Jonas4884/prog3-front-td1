@@ -1,6 +1,5 @@
-import { render, screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
-import { createRenderer } from "react-dom/test-utils";
+import { fireEvent, render, screen } from "@testing-library/react";
+import renderer from 'react-test-renderer'
 import TodoItem from "../common/TodoItem";
 import { done, todo } from "./testUtils";
 
@@ -38,12 +37,22 @@ describe("should return each item of to do task", () => {
     expect(toLabelValue).toBeInTheDocument();
   });
 
+  test('should match todoitem snapshot', () => { 
+    const renderComponent = renderer.create(<TodoItem todo={todo.at(0)} />).toJSON();
+    expect(renderComponent).toMatchSnapshot();
+   })
+
   test("should return a remover button to remove done task", () => {
     render(<TodoItem todo={done.at(0)} />);
     const actualStatus = screen.getByRole("remove_area");
+    const remove_button = '<p class="pointer"  role="remove_area">x</p>'
+    const remove_area = screen.getByText("x")
+    const label =screen.getByText("clscnjsbcmks")
     expect(actualStatus).toContainHTML(
-      '<p class="pointer"  role="remove_area">x</p>'
+      remove_button
     );
+    fireEvent.click(remove_area);
+    expect(label).toBeInTheDocument();
   });
 
 });

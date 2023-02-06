@@ -1,6 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import TodoItem from "../common/TodoItem";
 import { done } from "./testUtils";
+import renderer from 'react-test-renderer'
 import userEvent from "@testing-library/user-event";
 import App from "../App";
 
@@ -17,6 +18,10 @@ describe('should return main interface', () => {
         const titleTorender = screen.getByText("DONE");
     expect(titleTorender).toBeInTheDocument();
      })
+     test('should match the initiate snapshot', () => { 
+        const renderComponent = renderer.create(<App/>).toJSON();
+        expect(renderComponent).toMatchSnapshot()
+      })
 
      test("should remove item onClick", () => {
         const remove = jest.autoMockOn();

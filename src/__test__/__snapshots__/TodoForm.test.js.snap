@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should return the todo add task should map a snapshot 1`] = `
+<form
+  onSubmit={[Function]}
+  test-id="the__item"
+>
+  <input
+    className="todo__input"
+    data-testid="element-to-focus"
+    id="name"
+    name="name"
+    onChange={[Function]}
+    placeholder="Add new task"
+    type="text"
+    value=""
+  />
+  <label
+    className="form__label"
+    htmlFor="name"
+  >
+    Press enter to add Task
+  </label>
+</form>
+`;
