@@ -1,0 +1,75 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should return main interface should match the initiate snapshot 1`] = `
+<div
+  className="container__around"
+>
+  <div
+    className="todo__list__content"
+  >
+    <div
+      className="todo__array"
+      role="todo__array"
+    >
+      <h1
+        title="todo__title"
+      >
+        TODO
+      </h1>
+      <div
+        className="actions"
+        role="application"
+      >
+        <form
+          onSubmit={[Function]}
+          test-id="the__item"
+        >
+          <input
+            className="todo__input"
+            data-testid="element-to-focus"
+            id="name"
+            name="name"
+            onChange={[Function]}
+            placeholder="Add new task"
+            type="text"
+            value=""
+          />
+          <label
+            className="form__label"
+            htmlFor="name"
+          >
+            Press enter to add Task
+          </label>
+        </form>
+      </div>
+      <div>
+        <p>
+          No task
+        </p>
+      </div>
+    </div>
+    <div
+      className="todo__array"
+      role="todo__array"
+    >
+      <h1
+        title="todo__title"
+      >
+        DONE
+      </h1>
+      <div
+        className="actions"
+        role="application"
+      />
+      <div>
+        <p>
+          No task
+        </p>
+      </div>
+    </div>
+    <p>
+      []
+    </p>
+  </div>
+</div>
+`;

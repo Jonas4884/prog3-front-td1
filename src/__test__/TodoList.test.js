@@ -3,7 +3,7 @@ import TodoItemList from "../common/TodoList";
 import TodoForm from "../common/TodoForm";
 import { TodoStatus } from "../common/utils/status";
 import { done, todo } from "./testUtils";
-import { useState } from "react";
+import renderer from 'react-test-renderer'
 
 describe("the entire test for the list", () => {
   // TODO : this first would be a snapshot test
@@ -15,6 +15,11 @@ describe("the entire test for the list", () => {
     const theHeading = screen.getByRole("heading");
     expect(theactualValue).toBeInTheDocument();
   });
+  test('should match todoitem snapshot', () => { 
+    const renderComponent = renderer.create(<TodoItemList todos={todo} todoStatus={TodoStatus.DONE} />).toJSON();
+    expect(renderComponent).toMatchSnapshot();
+   })
+
 
   test("it should return the title for todo", () => {
     render(<TodoItemList todoStatus={TodoStatus.TODO} todos={todo} />);

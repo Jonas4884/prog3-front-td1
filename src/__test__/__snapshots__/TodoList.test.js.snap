@@ -1,0 +1,74 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`the entire test for the list should match todoitem snapshot 1`] = `
+<div
+  className="todo__array"
+  role="todo__array"
+>
+  <h1
+    title="todo__title"
+  >
+    DONE
+  </h1>
+  <div
+    className="actions"
+    role="application"
+  />
+  <div>
+    <div
+      className="todo__item todo__value"
+      role="the__item"
+    >
+      <input
+        checked={true}
+        className="pointer"
+        id="1675425781448"
+        name="todo"
+        onClick={[Function]}
+        type="checkbox"
+      />
+      <label
+        className="item__value"
+        htmlFor="todo"
+        role="todo_value"
+      >
+        task 1
+      </label>
+      <p
+        className="pointer"
+        onClick={[Function]}
+        role="remove_area"
+      >
+        x
+      </p>
+    </div>
+    <div
+      className="todo__item todo__value"
+      role="the__item"
+    >
+      <input
+        checked={true}
+        className="pointer"
+        id="1675425784921"
+        name="todo"
+        onClick={[Function]}
+        type="checkbox"
+      />
+      <label
+        className="item__value"
+        htmlFor="todo"
+        role="todo_value"
+      >
+        task 2
+      </label>
+      <p
+        className="pointer"
+        onClick={[Function]}
+        role="remove_area"
+      >
+        x
+      </p>
+    </div>
+  </div>
+</div>
+`;
