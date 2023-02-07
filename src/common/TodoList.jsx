@@ -8,7 +8,7 @@ const TodoItemList = (props) => {
     <div className='todo__array' role={'todo__array'}>
       <h1 title='todo__title'>{todoStatus.toString().toUpperCase()}</h1>
       <div className='actions' role={"application"}>{actions}</div>
-      <div>
+      <div test-id="input-todo">
         {currentTodos.length > 0 ? (
           currentTodos.map((todo, index) => <TodoItem onRemove={onRemove} key={'input' + index + todo.id} todo={todo} onDone={onDone} />)
         ) : (

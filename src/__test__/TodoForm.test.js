@@ -15,7 +15,7 @@ describe("should return the todo add task", () => {
     expect(toHaveaLabel).toBeInTheDocument();
   });
 
-  test("should return a value after focusing on input", () => {
+  test("should return an input", () => {
     const addTodo = "jadd okoko";
 
     render(<TodoForm add={[addTodo]} />);
@@ -23,7 +23,7 @@ describe("should return the todo add task", () => {
     expect(thePlaceholder).toBeInTheDocument();
   });
  
-  test("should can focus on the blank js test", () => {
+  test("should can focus on the blank", () => {
     render(<TodoForm />);
     const input = document.querySelector("input")
     input.focus();
