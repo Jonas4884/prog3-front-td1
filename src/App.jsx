@@ -28,10 +28,6 @@ function App() {
       <div className='todo__list__content'>
         <TodoItemList actions={<TodoForm add={addTodo} />} todoStatus={TodoStatus.TODO} todos={todos} onDone={doneTodo} />
         <TodoItemList todoStatus={TodoStatus.DONE} todos={todos} onDone={doneTodo} onRemove={removeTodo} />
-        <p>{
-          
-          JSON.stringify(todos)
-          }</p>
       </div>
     </div>
   );

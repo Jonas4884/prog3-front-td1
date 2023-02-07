@@ -1,10 +1,10 @@
 import { render, screen } from "@testing-library/react";
 import TodoItem from "../common/TodoItem";
-import { done } from "./testUtils";
+import { done, todo } from "./testUtils";
 import renderer from 'react-test-renderer'
 import userEvent from "@testing-library/user-event";
 import App from "../App";
-
+import { useState } from "react";
 
 describe('should return main interface', () => {
     test('should return title TODO', () => { 
@@ -24,8 +24,12 @@ describe('should return main interface', () => {
       })
 
      test("should remove item onClick", () => {
-        const remove = jest.autoMockOn();
-        render(<TodoItem todo={done.at(0)} onRemove={remove} />);
+        useState = jest.fn()
+        const [todos, setTodos] = useState([]);
+        const removeTodo = (todoId) => {
+            setTodos(currentTodos => currentTodos.filter(todo => todo.id !== todoId));
+          };
+        render(<TodoItem todo={todos.at(0)} onRemove={removeTodo} />);
         const actualStatus = screen.getByRole("remove_area");
         userEvent.click(actualStatus);
         expect(done.at(0).value).not.toBeInTheDocument();
